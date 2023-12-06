@@ -7,7 +7,28 @@
 ---
 # Video 1: [The Spelled-Out Intro to Neural Networks and Backpropagation: Building Micrograd](https://youtu.be/VMj-3S1tku0?si=G6dX1T-LRp6ugqNA)
 > This is the most step-by-step spelled-out explanation of backpropagation and training of neural networks. It only assumes basic knowledge of Python and a vague recollection of calculus from high school.
-- 
+
+**Micrograd:**
+- An Autograd engine that implements backpropagation for automatic differentiation
+- Works on the level of individual scalars to break down neural networks into basic mathematical "atoms"
+- Allows building mathematical expressions with various operations like add, multiply, power, relu, square, divide, etc.
+
+**Backpropagation:**
+- Allows efficient evaluation of the gradient of a loss function with respect to the weights of a neural network
+- Iteratively tunes the weights to minimize the loss function and improve model accuracy
+- Takes input data and network weights as input to generate predictions or loss function as output
+- More general than just neural networks - works for arbitrary mathematical expressions
+- Use tensors instead of scalars for efficiency and leveraging parallelism
+
+**Rare Andrej take:**
+- Micrograd is all you need to train networks, everything else is just efficiency
+
+**Code:**
+- *engine.py* - Autograd engine (100 lines)
+- *nn.py* - Entire neural network library on top of Micrograd (150 lines)
+- Mathematical expression example: `a*b + c = a.__mul__(b)).__add__(c)`
+- `d._prev` shows computational graph
+- `d._op` shows operation
 
 # Video 2: [The Spelled-Out Intro to Language Modeling: Building Makemore](https://youtu.be/PaCmpygFfXo?si=JhZ6-_Otuv3w7qLn)
 > We implement a bigram character-level language model, which we will further complexify in follow up videos into a modern Transformer language model, like GPT. In this video, the focus is on:
